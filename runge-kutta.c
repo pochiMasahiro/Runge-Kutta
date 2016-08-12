@@ -1,16 +1,5 @@
-#ifndef _STDIO_H
-#define _STDIO_H
-
 #include <stdio.h>
-
-#endif
-
-#ifndef _STDLIB_H
-#define _STDLIB_H
-
 #include <stdlib.h>
-
-#endif
 
 void runge_kutta(double (*f[])(double t, double *x), double *x, double t0, double t_end, int div, int num)
 {
