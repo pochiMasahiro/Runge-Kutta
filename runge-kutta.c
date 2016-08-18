@@ -42,13 +42,6 @@ void runge_kutta(double (*f[])(double t, double *x), double *x, double t0, doubl
       k4[j] = (*f[j])(t + h, temp);
       x[j] = (k1[j] + 2*k2[j] + 2*k3[j] + k4[j])*h/6;
     }
-
-    fprintf(stdout, "%E ", t);
-    for(j = 0; j < num; j++) {
-      fprintf(stdout, "%E ", x[j]);
-    }
-    fprintf(stdout, "\n");
-
     t += h;
   }
   free(k1);
