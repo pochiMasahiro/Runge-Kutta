@@ -27,7 +27,7 @@ void runge_kutta(double (*f[])(double t, double *x), double *x, double t0, doubl
     }
 
     for (j = 0; j < num; j++) {
-      temp[j] = x[j] * h*k2[j]/2.0;
+      temp[j] = x[j] + h*k2[j]/2.0;
     }
 
     for (j = 0; j < num; j++) {
