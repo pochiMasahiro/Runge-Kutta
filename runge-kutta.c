@@ -19,19 +19,19 @@ void runge_kutta(double (*f[])(double t, double *x), double *x, double t0, doubl
   for (i = 0; i < div; i++) {
     for (j = 0; j < num; j++) {
       k1[j] = (*f[j])(t, x);
-      temp[j] = x[j] + h*x[j]/2;
+      temp[j] = x[j] + h*k1[j]/2.0;
     }
 
     for (j = 0; j < num; j++) {
-      k2[j] = (*f[j])(t + h/2, temp);
+      k2[j] = (*f[j])(t + h/2.0, temp);
     }
 
     for (j = 0; j < num; j++) {
-      temp[j] = x[j] * h*k2[j]/2;
+      temp[j] = x[j] + h*k2[j]/2.0;
     }
 
     for (j = 0; j < num; j++) {
-      k3[j] = (*f[j])(t + h/2, temp);
+      k3[j] = (*f[j])(t + h/2.0, temp);
     }
 
     for (j = 0; j < num; j++) {
@@ -40,7 +40,7 @@ void runge_kutta(double (*f[])(double t, double *x), double *x, double t0, doubl
 
     for (j = 0; j < num; j++) {
       k4[j] = (*f[j])(t + h, temp);
-      x[j] = (k1[j] + 2*k2[j] + 2*k3[j] + k4[j])*h/6;
+      x[j] += (k1[j] + 2.0*k2[j] + 2.0*k3[j] + k4[j])*h/6.0;
     }
     t += h;
   }
