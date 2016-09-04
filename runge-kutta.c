@@ -7,11 +7,11 @@ void runge_kutta(double (*f[])(double t, double *x), double *x, double t0, doubl
   double h, t;
   double *k1, *k2, *k3, *k4, *temp;
 
-  k1 = malloc(sizeof(double) * num);
-  k2 = malloc(sizeof(double) * num);
-  k3 = malloc(sizeof(double) * num);
-  k4 = malloc(sizeof(double) * num);
-  temp = malloc(sizeof(double) * num);
+  k1 = calloc(sizeof(double) * num);
+  k2 = calloc(sizeof(double) * num);
+  k3 = calloc(sizeof(double) * num);
+  k4 = calloc(sizeof(double) * num);
+  temp = calloc(sizeof(double) * num);
 
   h = (t_end - t0) / div;
   t = t0;
