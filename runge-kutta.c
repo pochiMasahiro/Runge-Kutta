@@ -13,7 +13,7 @@ void runge_kutta(double (*f[])(double t, double *x), double *x, double t0, doubl
   k4 = calloc(num, sizeof(double));
   temp = calloc(num, sizeof(double));
 
-  h = (t_end - t0) / div;
+  h = (t_end - t0) / (double)div;
   t = t0;
 
   for (i = 0; i < div; i++) {
